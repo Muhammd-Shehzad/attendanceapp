@@ -1,5 +1,6 @@
 import 'package:attendanceapp/UI/AddBatches/add_batches_provider.dart';
-import 'package:attendanceapp/UI/Home/home_screen.dart';
+import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
+import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -81,13 +82,11 @@ class _AddBatchesState extends State<AddBatches> {
                                 InkWell(
                                   onTap: () {
                                     setState(() {
-                                      isOpen =
-                                          !isOpen; // Toggles dropdown visibility
+                                      isOpen = !isOpen;
                                     });
                                   },
                                   child: Container(
-                                    height: 50
-                                        .h, // Set height to match TextFormField
+                                    height: 50.h,
                                     padding:
                                         EdgeInsets.symmetric(horizontal: 16.w),
                                     alignment: Alignment.centerLeft,
@@ -112,11 +111,9 @@ class _AddBatchesState extends State<AddBatches> {
                                 ),
                                 if (isOpen)
                                   Container(
-                                    width: 310
-                                        .w, // Ensure the dropdown matches the parent width
+                                    width: 310.w,
                                     constraints: BoxConstraints(
-                                      maxHeight: 90
-                                          .h, // Set a max height for the dropdown
+                                      maxHeight: 90.h,
                                     ),
                                     decoration: BoxDecoration(
                                       color: Colors.grey[200],
@@ -165,69 +162,6 @@ class _AddBatchesState extends State<AddBatches> {
                               ],
                             ),
                           ),
-
-                          // InkWell(
-                          //   onTap: () {
-                          //     isOpen = !isOpen;
-                          //     setState(() {});
-                          //   },
-                          //   child: Container(
-                          //     width: 350.w,
-                          //     decoration: BoxDecoration(
-                          //       color: Colors.grey[200],
-                          //       borderRadius: BorderRadius.circular(30),
-                          //     ),
-                          //     child: Column(
-                          //       crossAxisAlignment: CrossAxisAlignment.start,
-                          //       children: [
-                          //         Padding(
-                          //           padding: EdgeInsets.symmetric(
-                          //               horizontal: 16.w, vertical: 8.h),
-                          //           child: Row(
-                          //             mainAxisAlignment:
-                          //                 MainAxisAlignment.spaceBetween,
-                          //             children: [
-                          //               Text(
-                          //                 'Enter Location',
-                          //                 style: TextStyle(
-                          //                     fontSize: 14.sp,
-                          //                     fontWeight: FontWeight.w400),
-                          //               ),
-                          //               Icon(Icons.keyboard_arrow_down),
-                          //             ],
-                          //           ),
-                          //         ),
-                          //         if (isOpen)
-                          //           ListView(
-                          //             primary: false,
-                          //             shrinkWrap: true,
-                          //             physics: NeverScrollableScrollPhysics(),
-                          //             padding: EdgeInsets.zero,
-                          //             children: model.location
-                          //                 .map(
-                          //                   (e) => Padding(
-                          //                     padding: EdgeInsets.symmetric(
-                          //                         horizontal: 16.w,
-                          //                         vertical: 8.h),
-                          //                     child: InkWell(
-                          //                       onTap: () {
-                          //                         selectOption = e;
-                          //                         setState(() {});
-                          //                       },
-                          //                       child: Text(
-                          //                         e,
-                          //                         style: TextStyle(
-                          //                             fontSize: 14.sp),
-                          //                       ),
-                          //                     ),
-                          //                   ),
-                          //                 )
-                          //                 .toList(),
-                          //           ),
-                          //       ],
-                          //     ),
-                          //   ),
-                          // ),
                           SizedBox(
                             height: 20.h,
                           ),
@@ -286,27 +220,11 @@ class _AddBatchesState extends State<AddBatches> {
                           SizedBox(
                             height: 20.h,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Get.to(HomeScreen());
+                          Button(
+                            onPressed: () {
+                              Get.to(BatchDetails());
                             },
-                            child: Container(
-                              height: 50.h,
-                              width: 320.w,
-                              decoration: BoxDecoration(
-                                color: Color(0xFF5AB7B7),
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Center(
-                                child: Text(
-                                  'Save',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                            ),
+                            text: 'Save Data',
                           ),
                         ],
                       ),
