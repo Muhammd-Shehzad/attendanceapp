@@ -1,18 +1,18 @@
-import 'package:attendanceapp/UI/Auth/SignIn/sign_up_screen.dart';
+import 'package:attendanceapp/UI/Auth/Login/login_screen.dart';
 import 'package:attendanceapp/UI/Home/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUPScreen extends StatefulWidget {
+  const SignUPScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUPScreen> createState() => _SignUPScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUPScreenState extends State<SignUPScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,13 +41,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 Positioned(
-                  top: 300.h,
+                  top: 260.h,
                   left: 20.w,
                   right: 20.w,
                   child: Column(
                     children: [
                       Text(
-                        'Admin Login',
+                        'Sign Up',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 20.sp,
@@ -84,6 +84,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 20.h,
                       ),
+                      TextFormField(
+                        decoration: InputDecoration(
+                          hintText: 'Enter your Re-password',
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
                       InkWell(
                         onTap: () {
                           Get.to(HomeScreen());
@@ -97,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           child: Center(
                             child: Text(
-                              'Login',
+                              'Sign Up',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20.sp,
@@ -111,7 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Text.rich(TextSpan(
                         children: [
-                          TextSpan(text: 'Don\'t have account'),
+                          TextSpan(text: 'Do you have account'),
                           WidgetSpan(
                             child: SizedBox(
                               width: 10.w,
@@ -120,9 +134,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextSpan(
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                Get.to(SignUPScreen());
+                                Get.to(LoginScreen());
                               },
-                            text: 'Sing Up',
+                            text: 'Login',
                             style: TextStyle(
                                 color: Colors.blue,
                                 decoration: TextDecoration.underline),

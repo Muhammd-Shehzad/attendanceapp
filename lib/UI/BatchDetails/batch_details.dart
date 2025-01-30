@@ -1,6 +1,7 @@
 import 'package:attendanceapp/UI/BatchDetails/batch_details_provider.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/text_rich.dart';
+import 'package:attendanceapp/UI/EditScreen/edit_screen.dart';
 import 'package:attendanceapp/UI/StudentDetails/student_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -32,10 +33,17 @@ class _BatchDetailsState extends State<BatchDetails> {
                       right: 5,
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.edit,
-                            size: 30,
-                            color: Colors.teal,
+                          InkWell(
+                            onTap: () {
+                              Get.to(EditScreen());
+                            },
+                            child: InkWell(
+                              child: Icon(
+                                Icons.edit,
+                                size: 30,
+                                color: Colors.teal,
+                              ),
+                            ),
                           ),
                           SizedBox(
                             width: 10.w,

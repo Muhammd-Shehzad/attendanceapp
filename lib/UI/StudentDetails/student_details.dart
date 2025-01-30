@@ -1,4 +1,5 @@
 import 'package:attendanceapp/UI/Custom/button.dart';
+import 'package:attendanceapp/UI/EnterStudentDetails/enter_student_details.dart';
 import 'package:attendanceapp/UI/StudentDetails/student_details_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -102,6 +103,9 @@ class _StudentDetailsState extends State<StudentDetails> {
                       left: 30.w,
                       right: 30.w,
                       child: Button(
+                        onPressed: () {
+                          Get.to(EnterStudentDetails());
+                        },
                         text: 'Add New Students',
                       ),
                     ),

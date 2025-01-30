@@ -70,8 +70,7 @@ class _AddBatchesState extends State<AddBatches> {
                             height: 20.h,
                           ),
                           Container(
-                            width:
-                                350.w, // Matches the width of the TextFormField
+                            width: 350.w,
                             decoration: BoxDecoration(
                               color: Colors.grey[200],
                               borderRadius: BorderRadius.circular(30),
@@ -94,13 +93,18 @@ class _AddBatchesState extends State<AddBatches> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Text(
-                                          selectOption.isNotEmpty
-                                              ? selectOption
-                                              : 'Enter Location',
-                                          style: TextStyle(
-                                              fontSize: 14.sp,
-                                              fontWeight: FontWeight.w400),
+                                        Expanded(
+                                          child: Center(
+                                            child: Text(
+                                              selectOption.isNotEmpty
+                                                  ? selectOption
+                                                  : 'Enter Location',
+                                              style: TextStyle(
+                                                  fontSize: 14.sp,
+                                                  fontWeight: FontWeight.w400),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          ),
                                         ),
                                         Icon(isOpen
                                             ? Icons.keyboard_arrow_up
@@ -136,15 +140,12 @@ class _AddBatchesState extends State<AddBatches> {
                                             (e) => InkWell(
                                               onTap: () {
                                                 setState(() {
-                                                  selectOption =
-                                                      e; // Updates selected option
-                                                  isOpen =
-                                                      false; // Closes the dropdown
+                                                  selectOption = e;
+                                                  isOpen = false;
                                                 });
                                               },
                                               child: Container(
-                                                height: 30
-                                                    .h, // Ensure each item has the same height
+                                                height: 30.h,
                                                 padding: EdgeInsets.symmetric(
                                                     horizontal: 16.w),
                                                 alignment: Alignment.centerLeft,
@@ -224,7 +225,7 @@ class _AddBatchesState extends State<AddBatches> {
                             onPressed: () {
                               Get.to(BatchDetails());
                             },
-                            text: 'Save Data',
+                            text: 'Save',
                           ),
                         ],
                       ),
