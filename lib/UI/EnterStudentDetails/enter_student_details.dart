@@ -1,3 +1,4 @@
+import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/EnterStudentDetails/enter_student_details_provider.dart';
 import 'package:flutter/material.dart';
@@ -212,7 +213,7 @@ class _EnterStudentDetailsState extends State<EnterStudentDetails> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to('');
+                              Get.to(BatchDetails());
                             },
                             text: 'Save',
                           ),
