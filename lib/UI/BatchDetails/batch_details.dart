@@ -1,3 +1,4 @@
+import 'package:attendanceapp/UI/AttandanceScreen/attandacne_screen.dart';
 import 'package:attendanceapp/UI/BatchDetails/batch_details_provider.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/text_rich.dart';
@@ -119,7 +120,9 @@ class _BatchDetailsState extends State<BatchDetails> {
                             height: 10.h,
                           ),
                           Button(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(AttandacneScreen());
+                            },
                             text: 'Attandance',
                           ),
                           SizedBox(
