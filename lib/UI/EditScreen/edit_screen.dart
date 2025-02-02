@@ -127,7 +127,7 @@ class _EditScreenState extends State<EditScreen> {
                           TextFormField(
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
-                              hintText: 'Enter No of Students',
+                              hintText: 'Enter No of Student',
                               filled: true,
                               fillColor: Colors.grey[200],
                               border: OutlineInputBorder(
@@ -142,7 +142,7 @@ class _EditScreenState extends State<EditScreen> {
                           Align(
                             alignment: Alignment.topLeft,
                             child: Text(
-                              'Batch Lead Details',
+                              'Batch Lead Detail',
                               style: TextStyle(
                                   color: Color(0xFF5AB7B7), fontSize: 20.sp),
                             ),
