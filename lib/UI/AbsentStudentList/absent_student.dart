@@ -1,25 +1,22 @@
-import 'package:attendanceapp/UI/AttandanceScreen/attandance_screen_provider.dart';
-import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
-import 'package:attendanceapp/UI/Custom/button.dart';
-import 'package:attendanceapp/UI/PiChartScreen/pi_chart_screen.dart';
+import 'package:attendanceapp/UI/AbsentStudentList/absent_student_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
-class AttandacneScreen extends StatefulWidget {
-  const AttandacneScreen({super.key});
+class AbsentStudent extends StatefulWidget {
+  const AbsentStudent({super.key});
 
   @override
-  State<AttandacneScreen> createState() => _AttandacneScreenState();
+  State<AbsentStudent> createState() => _AbsentStudentState();
 }
 
-class _AttandacneScreenState extends State<AttandacneScreen> {
+class _AbsentStudentState extends State<AbsentStudent> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => AttandanceScreenProvider(),
-      child: Consumer<AttandanceScreenProvider>(
+      create: (context) => AbsentStudentProvider(),
+      child: Consumer<AbsentStudentProvider>(
         builder: (context, model, child) => Scaffold(
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -27,6 +24,19 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
               Expanded(
                 child: Stack(
                   children: [
+                    Positioned(
+                        top: 50.h,
+                        left: 15.w,
+                        child: InkWell(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            size: 30.sp,
+                            color: Colors.black,
+                          ),
+                        )),
                     Positioned(
                       top: -80.h,
                       left: -70.w,
@@ -56,11 +66,11 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                     ),
                     Positioned(
                       top: 100.h,
-                      left: 105.w,
-                      right: 105.w,
+                      left: 20.w,
+                      right: 20.w,
                       child: Center(
                         child: Text(
-                          'Attandance',
+                          'Absent Students',
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 20.sp,
@@ -73,7 +83,7 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                       left: 30.w,
                       right: 30.w,
                       child: SizedBox(
-                        height: 360.h,
+                        height: 500.h,
                         child: ListView.builder(
                           padding: EdgeInsets.zero,
                           itemCount: 10,
@@ -84,7 +94,7 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                                 height: 50.h,
                                 width: 380.w,
                                 decoration: BoxDecoration(
-                                  color: Colors.grey.shade200,
+                                  color: Colors.red,
                                   borderRadius: BorderRadius.circular(35),
                                 ),
                                 alignment: Alignment.center,
@@ -94,7 +104,7 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                                     Text(
                                       '01',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 18.sp),
+                                          color: Colors.white, fontSize: 18.sp),
                                     ),
                                     SizedBox(
                                       width: 10.w,
@@ -102,7 +112,7 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                                     Text(
                                       'Shehzad Ali  Shah',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 18.sp),
+                                          color: Colors.white, fontSize: 18.sp),
                                     ),
                                     SizedBox(
                                       width: 10.w,
@@ -110,7 +120,7 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                                     Text(
                                       'P',
                                       style: TextStyle(
-                                          color: Colors.black, fontSize: 18.sp),
+                                          color: Colors.white, fontSize: 18.sp),
                                     ),
                                   ],
                                 ),
@@ -118,73 +128,6 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                             );
                           },
                         ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 495.h,
-                      left: 30.w,
-                      right: 30.w,
-                      child: Button(
-                        onPressed: () {
-                          Get.to(
-                            showDialog(
-                                context: context,
-                                builder: (context) {
-                                  return AlertDialog(
-                                    title: Text(
-                                      'Save!',
-                                      style: TextStyle(color: Colors.red),
-                                    ),
-                                    content: SizedBox(
-                                      height: 60.h,
-                                      width: 250.w,
-                                      child: Column(
-                                        children: [
-                                          Text(
-                                            'Present: 15',
-                                            style: TextStyle(
-                                                fontSize: 18.sp,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                          Text(
-                                            'Absent: 5',
-                                            style: TextStyle(
-                                                fontSize: 18.sp,
-                                                fontWeight: FontWeight.bold),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Get.to(PiChartScreen());
-                                        },
-                                        child: Text('Save'),
-                                      ),
-                                      TextButton(
-                                        onPressed: () {
-                                          Get.back();
-                                        },
-                                        child: Text('Cancel'),
-                                      ),
-                                    ],
-                                  );
-                                }),
-                          );
-                        },
-                        text: 'Save',
-                      ),
-                    ),
-                    Positioned(
-                      top: 557.h,
-                      left: 30.w,
-                      right: 30.w,
-                      child: Button(
-                        onPressed: () {
-                          Get.to(PiChartScreen());
-                        },
-                        text: 'view attendance',
                       ),
                     ),
                     Positioned(
