@@ -42,8 +42,8 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                       right: 10.w,
                       child: TextFormField(
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
-                          suffixIcon: Icon(Icons.close),
+                          prefixIcon: const Icon(Icons.search),
+                          suffixIcon: const Icon(Icons.close),
                           hintText: 'Search...',
                           filled: true,
                           fillColor: Colors.grey[200],
@@ -131,7 +131,7 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                                 context: context,
                                 builder: (context) {
                                   return AlertDialog(
-                                    title: Text(
+                                    title: const Text(
                                       'Save!',
                                       style: TextStyle(color: Colors.red),
                                     ),
@@ -158,15 +158,15 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                                     actions: [
                                       TextButton(
                                         onPressed: () {
-                                          Get.to(PiChartScreen());
+                                          Get.to(const PiChartScreen());
                                         },
-                                        child: Text('Save'),
+                                        child: const Text('Save'),
                                       ),
                                       TextButton(
                                         onPressed: () {
                                           Get.back();
                                         },
-                                        child: Text('Cancel'),
+                                        child: const Text('Cancel'),
                                       ),
                                     ],
                                   );
@@ -182,7 +182,7 @@ class _AttandacneScreenState extends State<AttandacneScreen> {
                       right: 30.w,
                       child: Button(
                         onPressed: () {
-                          Get.to(PiChartScreen());
+                          Get.to(const PiChartScreen());
                         },
                         text: 'view attendance',
                       ),

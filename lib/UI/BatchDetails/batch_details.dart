@@ -36,9 +36,9 @@ class _BatchDetailsState extends State<BatchDetails> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Get.to(EditScreen());
+                              Get.to(const EditScreen());
                             },
-                            child: InkWell(
+                            child: const InkWell(
                               child: Icon(
                                 Icons.edit,
                                 size: 30,
@@ -49,7 +49,7 @@ class _BatchDetailsState extends State<BatchDetails> {
                           SizedBox(
                             width: 10.w,
                           ),
-                          Icon(
+                          const Icon(
                             Icons.delete,
                             size: 30,
                             color: Colors.teal,
@@ -102,7 +102,7 @@ class _BatchDetailsState extends State<BatchDetails> {
                             child: Text(
                               'Batch Lead Details',
                               style: TextStyle(
-                                  color: Color(0xFF5AB7B7), fontSize: 20.sp),
+                                  color: const Color(0xFF5AB7B7), fontSize: 20.sp),
                             ),
                           ),
                           SizedBox(
@@ -121,7 +121,7 @@ class _BatchDetailsState extends State<BatchDetails> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(AttandacneScreen());
+                              Get.to(const AttandacneScreen());
                             },
                             text: 'Attandance',
                           ),
@@ -130,7 +130,7 @@ class _BatchDetailsState extends State<BatchDetails> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(StudentDetails());
+                              Get.to(const StudentDetails());
                             },
                             text: 'Student Details',
                           ),

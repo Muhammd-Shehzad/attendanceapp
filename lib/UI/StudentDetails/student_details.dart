@@ -43,8 +43,8 @@ class _StudentDetailsState extends State<StudentDetails> {
                       right: 10.w,
                       child: TextFormField(
                         decoration: InputDecoration(
-                          prefixIcon: Icon(Icons.search),
-                          suffixIcon: Icon(Icons.close),
+                          prefixIcon: const Icon(Icons.search),
+                          suffixIcon: const Icon(Icons.close),
                           hintText: 'Search...',
                           filled: true,
                           fillColor: Colors.grey[200],
@@ -104,7 +104,7 @@ class _StudentDetailsState extends State<StudentDetails> {
                       right: 30.w,
                       child: Button(
                         onPressed: () {
-                          Get.to(EnterStudentDetails());
+                          Get.to(const EnterStudentDetails());
                         },
                         text: 'Add New Students',
                       ),

@@ -47,30 +47,30 @@ class _EditScreenState extends State<EditScreen> {
                               context: context,
                               builder: (context) {
                                 return AlertDialog(
-                                  title: Text(
+                                  title: const Text(
                                     'Alert!',
                                     style: TextStyle(color: Colors.red),
                                   ),
                                   content:
-                                      Text('Do you want to delete this batch'),
+                                      const Text('Do you want to delete this batch'),
                                   actions: [
                                     TextButton(
                                       onPressed: () {
-                                        Get.to(BatchDetails());
+                                        Get.to(const BatchDetails());
                                       },
-                                      child: Text('Yes'),
+                                      child: const Text('Yes'),
                                     ),
                                     TextButton(
                                       onPressed: () {
                                         Get.back();
                                       },
-                                      child: Text('No'),
+                                      child: const Text('No'),
                                     ),
                                   ],
                                 );
                               });
                         },
-                        child: Icon(
+                        child: const Icon(
                           Icons.delete,
                           size: 30,
                           color: Colors.teal,
@@ -144,7 +144,7 @@ class _EditScreenState extends State<EditScreen> {
                             child: Text(
                               'Batch Lead Detail',
                               style: TextStyle(
-                                  color: Color(0xFF5AB7B7), fontSize: 20.sp),
+                                  color: const Color(0xFF5AB7B7), fontSize: 20.sp),
                             ),
                           ),
                           SizedBox(
@@ -182,7 +182,7 @@ class _EditScreenState extends State<EditScreen> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(Get.to(BatchDetails()));
+                              Get.to(Get.to(const BatchDetails()));
                             },
                             text: 'Save',
                           ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TextRich extends StatelessWidget {
-  TextRich({
+  const TextRich({
     super.key,
     this.text1,
     this.text2,

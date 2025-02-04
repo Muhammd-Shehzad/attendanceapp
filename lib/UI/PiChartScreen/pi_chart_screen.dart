@@ -88,7 +88,7 @@ class _PiChartScreenState extends State<PiChartScreen> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(PresentStudent());
+                              Get.to(const PresentStudent());
                             },
                             text: 'Presnt Students',
                           ),
@@ -97,7 +97,7 @@ class _PiChartScreenState extends State<PiChartScreen> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(AbsentStudent());
+                              Get.to(const AbsentStudent());
                             },
                             text: 'Absent Students',
                           ),
@@ -106,7 +106,7 @@ class _PiChartScreenState extends State<PiChartScreen> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(GraphScreen());
+                              Get.to(const GraphScreen());
                             },
                             text: 'Graph of Students',
                           ),

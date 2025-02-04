@@ -2,24 +2,23 @@ import 'package:attendanceapp/UI/Custom/toast_popup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SignUpScreenProvider extends ChangeNotifier {
+class LoginProvider extends ChangeNotifier {
+  FirebaseAuth auth = FirebaseAuth.instance;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  FirebaseAuth auth = FirebaseAuth.instance;
+  bool isloading = false;
 
-  bool isloading =false;
-
-  void signUp() async {
+  void isLogin() {
     isloading = true;
     notifyListeners();
+
     auth
-        .createUserWithEmailAndPassword(
+        .signInWithEmailAndPassword(
             email: emailController.text.toString(),
             password: passwordController.text.toString())
         .then((v) {
-      ToastPopup()
-          .toast('Account Created Sucessfully', Colors.green, Colors.white);
+      ToastPopup().toast('Sing In Successfully', Colors.green, Colors.white);
       emailController.clear();
       passwordController.clear();
       isloading = false;

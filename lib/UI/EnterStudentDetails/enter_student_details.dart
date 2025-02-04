@@ -111,14 +111,14 @@ class _EnterStudentDetailsState extends State<EnterStudentDetails> {
                                           color: Colors.grey.withOpacity(0.2),
                                           blurRadius: 4,
                                           spreadRadius: 2,
-                                          offset: Offset(0, 2),
+                                          offset: const Offset(0, 2),
                                         ),
                                       ],
                                     ),
                                     child: ListView(
                                       primary: false,
                                       shrinkWrap: true,
-                                      physics: BouncingScrollPhysics(),
+                                      physics: const BouncingScrollPhysics(),
                                       padding: EdgeInsets.zero,
                                       children: model.batch
                                           .map(
@@ -213,7 +213,7 @@ class _EnterStudentDetailsState extends State<EnterStudentDetails> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(BatchDetails());
+                              Get.to(const BatchDetails());
                             },
                             text: 'Save',
                           ),

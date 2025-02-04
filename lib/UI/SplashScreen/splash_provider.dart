@@ -6,9 +6,9 @@ class SplashProvider extends ChangeNotifier {
 
 void splashscreen() {
 
-    Future.delayed(Duration(seconds: 3),(){
+    Future.delayed(const Duration(seconds: 3),(){
 
-      Get.to(LoginScreen());
+      Get.to(const LoginScreen());
       
     });
 
