@@ -88,20 +88,20 @@ class _SignUPScreenState extends State<SignUPScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          TextFormField(
-                            decoration: InputDecoration(
-                              hintText: 'Enter your Re-password',
-                              filled: true,
-                              fillColor: Colors.grey[200],
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
+                          // SizedBox(
+                          //   height: 20.h,
+                          // ),
+                          // TextFormField(
+                          //   decoration: InputDecoration(
+                          //     hintText: 'Enter your Re-password',
+                          //     filled: true,
+                          //     fillColor: Colors.grey[200],
+                          //     border: OutlineInputBorder(
+                          //       borderRadius: BorderRadius.circular(30),
+                          //       borderSide: BorderSide.none,
+                          //     ),
+                          //   ),
+                          // ),
                           SizedBox(
                             height: 10.h,
                           ),
@@ -176,7 +176,6 @@ class _SignUPScreenState extends State<SignUPScreen> {
                         ),
                       ),
                     ),
-                    
                   ],
                 ),
               ),

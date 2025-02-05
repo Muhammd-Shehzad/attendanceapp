@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 class LoginProvider extends ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
 
   bool isloading = false;
 
@@ -15,12 +15,11 @@ class LoginProvider extends ChangeNotifier {
 
     auth
         .signInWithEmailAndPassword(
-            email: emailController.text.toString(),
-            password: passwordController.text.toString())
+            email: email.text.toString(), password: password.text.toString())
         .then((v) {
       ToastPopup().toast('Sing In Successfully', Colors.green, Colors.white);
-      emailController.clear();
-      passwordController.clear();
+      email.clear();
+      password.clear();
       isloading = false;
       notifyListeners();
     }).onError((Error, v) {

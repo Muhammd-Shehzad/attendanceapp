@@ -1,4 +1,5 @@
 import 'package:attendanceapp/UI/AddBatches/add_batches.dart';
+import 'package:attendanceapp/UI/Auth/Login/login_screen.dart';
 import 'package:attendanceapp/UI/Home/home_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -178,6 +179,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     onTap: () {
                                       setState(() {
                                         model.showMenu = false;
+                                        model.isLouout();
+                                        Get.to(LoginScreen());
                                       });
                                     },
                                     leading: const Icon(Icons.logout),
