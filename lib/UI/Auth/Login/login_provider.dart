@@ -1,9 +1,13 @@
 import 'package:attendanceapp/UI/Custom/toast_popup.dart';
+import 'package:attendanceapp/UI/Home/home_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginProvider extends ChangeNotifier {
   FirebaseAuth auth = FirebaseAuth.instance;
+  final formKey = GlobalKey<FormState>();
+
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
@@ -15,15 +19,16 @@ class LoginProvider extends ChangeNotifier {
 
     auth
         .signInWithEmailAndPassword(
-            email: email.text.toString(), password: password.text.toString())
+            email: email.text.trim(), password: password.text.trim())
         .then((v) {
-      ToastPopup().toast('Sing In Successfully', Colors.green, Colors.white);
+      ToastPopup().toast('Sign In Successfully', Colors.green, Colors.white);
+      Get.off(HomeScreen());
+      isloading = false;
       email.clear();
       password.clear();
-      isloading = false;
       notifyListeners();
-    }).onError((Error, v) {
-      ToastPopup().toast(Error.toString(), Colors.red, Colors.white);
+    }).onError((error, stackTrace) {
+      ToastPopup().toast(error.toString(), Colors.red, Colors.white);
       isloading = false;
       notifyListeners();
     });

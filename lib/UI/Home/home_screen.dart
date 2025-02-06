@@ -180,7 +180,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       setState(() {
                                         model.showMenu = false;
                                         model.isLouout();
-                                        Get.to(LoginScreen());
+                                        Get.off(LoginScreen());
                                       });
                                     },
                                     leading: const Icon(Icons.logout),

@@ -5,5 +5,8 @@ class BatchDetailsProvider extends ChangeNotifier {
 
 
 
+
+
+
   
 }

@@ -114,50 +114,50 @@ class _AddBatchesState extends State<AddBatches> {
                                   ),
                                 ),
                                 if (isOpen)
-                                  Container(
-                                    width: 310.w,
-                                    constraints: BoxConstraints(
-                                      maxHeight: 90.h,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey[200],
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.grey.withOpacity(0.2),
-                                          blurRadius: 4,
-                                          spreadRadius: 2,
-                                          offset: const Offset(0, 2),
-                                        ),
-                                      ],
-                                    ),
-                                    child: ListView(
-                                      primary: false,
-                                      shrinkWrap: true,
-                                      physics: const BouncingScrollPhysics(),
-                                      padding: EdgeInsets.zero,
-                                      children: model.location
-                                          .map(
-                                            (e) => InkWell(
-                                              onTap: () {
-                                                setState(() {
-                                                  selectOption = e;
-                                                  isOpen = false;
-                                                });
-                                              },
-                                              child: Container(
-                                                height: 30.h,
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 16.w),
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  e,
-                                                  style: TextStyle(
-                                                      fontSize: 14.sp),
+                                  Padding(
+                                    padding: const EdgeInsets.all(2),
+                                    child: Container(
+                                      width: 319.w,
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey[200],
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.grey.withOpacity(0.2),
+                                            blurRadius: 4,
+                                            spreadRadius: 2,
+                                            offset: const Offset(0, 2),
+                                          ),
+                                        ],
+                                      ),
+                                      child: ListView(
+                                        primary: false,
+                                        shrinkWrap: true,
+                                        padding: EdgeInsets.zero,
+                                        children: model.location
+                                            .map(
+                                              (e) => InkWell(
+                                                onTap: () {
+                                                  setState(() {
+                                                    selectOption = e;
+                                                    isOpen = false;
+                                                  });
+                                                },
+                                                child: Container(
+                                                  height: 30.h,
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 20.w),
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Text(
+                                                    e,
+                                                    style: TextStyle(
+                                                        fontSize: 14.sp),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          )
-                                          .toList(),
+                                            )
+                                            .toList(),
+                                      ),
                                     ),
                                   ),
                               ],
