@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-   CustomTextFormField({
-    super.key, this.controller, this.hitText, this.vlaidationText, this.obsText, this.keyBoradType,
+  const CustomTextFormField({
+    super.key,
+    this.controller,
+    this.hitText,
+    this.vlaidationText,
+    this.obsText,
+    this.keyBoradType,
   });
 
   final controller;
@@ -14,6 +19,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      textAlign: TextAlign.center,
       decoration: InputDecoration(
         hintText: hitText,
         filled: true,

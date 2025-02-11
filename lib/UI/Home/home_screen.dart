@@ -1,5 +1,7 @@
-import 'package:attendanceapp/UI/AddBatches/add_batches.dart';
 import 'package:attendanceapp/UI/Auth/Login/login_screen.dart';
+import 'package:attendanceapp/UI/Custom/bottom_sheet_widget.dart';
+
+
 import 'package:attendanceapp/UI/Home/home_screen_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -82,29 +84,31 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 180.h,
-                      left: 100.w,
-                      right: 100.w,
+                      top: 190.h,
+                      left: 20.w,
+                      right: 20.w,
                       child: SizedBox(
-                        height: 400.h,
+                        height: 420.h,
                         child: ListView.builder(
                           padding: EdgeInsets.zero,
-                          itemCount: 100,
+                          itemCount: 10,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Container(
-                                height: 40.h,
-                                width: 300.w,
+                                height: 50.h,
+                                width: 200.w,
                                 decoration: BoxDecoration(
-                                  color: Colors.teal,
+                                  color:
+                                      const Color.fromARGB(255, 160, 218, 212),
                                   borderRadius: BorderRadius.circular(35),
                                 ),
                                 alignment: Alignment.center,
                                 child: Text(
                                   'Batch 1',
                                   style: TextStyle(
-                                      fontSize: 18.sp, color: Colors.black),
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
                             );
@@ -113,12 +117,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 600.h,
+                      top: 620.h,
                       left: 100.w,
                       right: 100.w,
                       child: InkWell(
                         onTap: () {
-                          Get.to(const AddBatches());
+                          BottomSheetWidget(context, model);
                         },
                         child: CircleAvatar(
                           radius: 30.r,
@@ -154,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                               color: Colors.black26,
                               blurRadius: 10,
@@ -180,7 +184,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       setState(() {
                                         model.showMenu = false;
                                         model.isLouout();
-                                        Get.off(LoginScreen());
+                                        Get.off(const LoginScreen());
                                       });
                                     },
                                     leading: const Icon(Icons.logout),
@@ -200,4 +204,5 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 }

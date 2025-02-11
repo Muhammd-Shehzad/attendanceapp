@@ -2,7 +2,6 @@ import 'package:attendanceapp/UI/Auth/Login/login_screen.dart';
 import 'package:attendanceapp/UI/Auth/SignIn/sign_up_screen_provider.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/custom_text_form_field.dart';
-import 'package:attendanceapp/UI/Home/home_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -104,7 +103,7 @@ class _SignUPScreenState extends State<SignUPScreen> {
                               height: 10.h,
                             ),
                             model.isloading
-                                ? CircularProgressIndicator()
+                                ? const CircularProgressIndicator()
                                 : Button(
                                     onPressed: () {
                                       if (model.formKey.currentState!

@@ -21,14 +21,11 @@ class TextRich extends StatelessWidget {
             TextSpan(
               children: [
                 TextSpan(
-                    text: text1,
-                    style: TextStyle(color: Colors.black, fontSize: 20.sp)),
+                  text: text1,
+                ),
                 TextSpan(
-                    text: text2,
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold)),
+                  text: text2,
+                ),
               ],
             ),
           ),

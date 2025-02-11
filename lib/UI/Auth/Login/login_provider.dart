@@ -22,7 +22,7 @@ class LoginProvider extends ChangeNotifier {
             email: email.text.trim(), password: password.text.trim())
         .then((v) {
       ToastPopup().toast('Sign In Successfully', Colors.green, Colors.white);
-      Get.off(HomeScreen());
+      Get.off(const HomeScreen());
       isloading = false;
       email.clear();
       password.clear();

@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               height: 20.h,
                             ),
                             model.isloading
-                                ? CircularProgressIndicator()
+                                ? const CircularProgressIndicator()
                                 : Button(
                                     onPressed: () {
                                       if (model.formKey.currentState!
@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                         model.isLogin();
                                       }
                                     },
-                                    text: 'Sign Up',
+                                    text: 'LogIn',
                                   ),
                             SizedBox(
                               height: 20.h,

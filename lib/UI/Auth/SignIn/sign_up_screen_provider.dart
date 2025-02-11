@@ -30,7 +30,7 @@ class SignUpScreenProvider extends ChangeNotifier {
     }).then((v) {
       ToastPopup()
           .toast('Account Created Sucessfully', Colors.green, Colors.white);
-      Get.off(HomeScreen());
+      Get.off(const HomeScreen());
 
       email.clear();
       password.clear();

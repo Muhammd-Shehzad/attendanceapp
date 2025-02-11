@@ -6,6 +6,11 @@ class HomeScreenProvider extends ChangeNotifier {
   bool showMenu = false;
 
   FirebaseAuth auth = FirebaseAuth.instance;
+  final formKey = GlobalKey<FormState>();
+
+  TextEditingController cousreName = TextEditingController();
+  TextEditingController batchNumber = TextEditingController();
+
   bool isLoading = false;
 
   void isLouout() {
@@ -22,4 +27,5 @@ class HomeScreenProvider extends ChangeNotifier {
       notifyListeners();
     });
   }
+  
 }

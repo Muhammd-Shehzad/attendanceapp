@@ -1,9 +1,6 @@
-import 'package:attendanceapp/UI/AttandanceScreen/attandacne_screen.dart';
 import 'package:attendanceapp/UI/BatchDetails/batch_details_provider.dart';
-import 'package:attendanceapp/UI/Custom/button.dart';
-import 'package:attendanceapp/UI/Custom/text_rich.dart';
 import 'package:attendanceapp/UI/EditScreen/edit_screen.dart';
-import 'package:attendanceapp/UI/StudentDetails/student_details.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -70,72 +67,80 @@ class _BatchDetailsState extends State<BatchDetails> {
                       top: 120.h,
                       left: 20.w,
                       right: 20.w,
-                      child: Column(
-                        children: [
-                          Text(
-                            'Batch Details',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          TextRich(
-                            text1: 'Batch Name:',
-                            text2: ' Shehzad',
-                          ),
-                          TextRich(
-                            text1: 'Location:',
-                            text2: ' Charsadda Road ',
-                          ),
-                          TextRich(
-                            text1: 'No Students:',
-                            text2: ' 30 ',
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Text(
-                              'Batch Lead Details',
-                              style: TextStyle(
-                                  color: const Color(0xFF5AB7B7), fontSize: 20.sp),
-                            ),
-                          ),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          TextRich(
-                            text1: 'Batch Leader:',
-                            text2: ' Talha Iqbal',
-                          ),
-                          TextRich(
-                            text1: 'Mobil No:',
-                            text2: ' 03xxxxxxxxx',
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Button(
-                            onPressed: () {
-                              Get.to(const AttandacneScreen());
-                            },
-                            text: 'Attandance',
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Button(
-                            onPressed: () {
-                              Get.to(const StudentDetails());
-                            },
-                            text: 'Student Details',
-                          ),
-                        ],
+                      child: Expanded(
+                        child: FirebaseAnimatedList(
+                            query: model.dbBatch,
+                            itemBuilder: (context, snapshot, animation, index) {
+                              return Column(
+                                children: [
+                                  // Text(
+                                  //   snapshot.child('Batch No').value.toString(),
+                                  //   style: TextStyle(
+                                  //       color: Colors.black,
+                                  //       fontSize: 20.sp,
+                                  //       fontWeight: FontWeight.bold),
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 20.h,
+                                  // ),
+                                  // const TextRich(
+                                  //   text1: 'Batch Name:',
+                                  //   text2: ' Shehzad',
+                                  // ),
+                                  // const TextRich(
+                                  //   text1: 'Location:',
+                                  //   text2: ' Charsadda Road ',
+                                  // ),
+                                  // const TextRich(
+                                  //   text1: 'No Students:',
+                                  //   text2: ' 30 ',
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 20.h,
+                                  // ),
+                                  // Align(
+                                  //   alignment: Alignment.topLeft,
+                                  //   child: Text(
+                                  //     'Batch Lead Details',
+                                  //     style: TextStyle(
+                                  //         color: const Color(0xFF5AB7B7),
+                                  //         fontSize: 20.sp),
+                                  //   ),
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 20.h,
+                                  // ),
+                                  // const TextRich(
+                                  //   text1: 'Batch Leader:',
+                                  //   text2: ' Talha Iqbal',
+                                  // ),
+                                  // const TextRich(
+                                  //   text1: 'Mobil No:',
+                                  //   text2: ' 03xxxxxxxxx',
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 10.h,
+                                  // ),
+                                  // Button(
+                                  //   onPressed: () {
+                                  //     Get.to(const AttandacneScreen());
+                                  //   },
+                                  //   text: 'Attandance',
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 10.h,
+                                  // ),
+                                  // Button(
+                                  //   onPressed: () {
+                                  //     Get.to(const StudentDetails());
+                                  //   },
+                                  //   text: 'Student Details',
+                                  // ),
+                                ],
+                              );
+                            }),
                       ),
+                      //
                     ),
                     Positioned(
                       top: 607.h,

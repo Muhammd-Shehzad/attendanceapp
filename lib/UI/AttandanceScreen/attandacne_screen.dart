@@ -1,5 +1,4 @@
 import 'package:attendanceapp/UI/AttandanceScreen/attandance_screen_provider.dart';
-import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/PiChartScreen/pi_chart_screen.dart';
 import 'package:flutter/material.dart';

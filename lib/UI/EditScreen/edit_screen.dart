@@ -1,7 +1,6 @@
 import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/EditScreen/edith_screen_provider.dart';
-import 'package:attendanceapp/UI/EnterStudentDetails/enter_student_details_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';

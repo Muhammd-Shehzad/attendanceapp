@@ -11,9 +11,9 @@ class SplashProvider extends ChangeNotifier {
     Future.delayed(const Duration(seconds: 3), () {
       final user = auth.currentUser;
       if (user != null) {
-        Get.off(HomeScreen());
+        Get.off(const HomeScreen());
       } else {
-        Get.off(LoginScreen());
+        Get.off(const LoginScreen());
       }
     });
   }
