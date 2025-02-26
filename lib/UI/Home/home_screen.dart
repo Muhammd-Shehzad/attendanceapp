@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Text(
                         'Batches',
                         style: TextStyle(
-                            color: Colors.red,
+                            color: Colors.black,
                             fontSize: 20.sp,
                             fontWeight: FontWeight.bold),
                       ),
