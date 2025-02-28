@@ -1,5 +1,6 @@
 import 'package:attendanceapp/UI/Custom/toast_popup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreenProvider extends ChangeNotifier {
@@ -10,6 +11,8 @@ class HomeScreenProvider extends ChangeNotifier {
 
   TextEditingController cousreName = TextEditingController();
   TextEditingController batchNumber = TextEditingController();
+  final dbAddBatches = FirebaseDatabase.instance.ref('AddBatch');
+  
 
   bool isLoading = false;
 
@@ -27,5 +30,4 @@ class HomeScreenProvider extends ChangeNotifier {
       notifyListeners();
     });
   }
-  
 }

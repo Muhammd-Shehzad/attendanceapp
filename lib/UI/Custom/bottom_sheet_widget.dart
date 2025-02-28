@@ -1,9 +1,8 @@
-import 'package:attendanceapp/UI/Auth/Login/login_screen.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/custom_text_form_field.dart';
 import 'package:attendanceapp/UI/Custom/toast_popup.dart';
+import 'package:attendanceapp/UI/Home/home_screen.dart';
 import 'package:attendanceapp/UI/Home/home_screen_provider.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -48,7 +47,7 @@ Future<dynamic> BottomSheetWidget(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
               child: CustomTextFormField(
                 hitText: 'Enter Batch Number',
-                keyBoradType: TextInputType.number,
+                keyBoradType: TextInputType.text,
                 obsText: false,
                 controller: model.batchNumber,
                 vlaidationText: (value) {
@@ -64,26 +63,22 @@ Future<dynamic> BottomSheetWidget(
             ),
             Button(
               onPressed: () {
-                if (model.formKey.currentState!.validate()) {
-                  DatabaseReference db =
-                      FirebaseDatabase.instance.ref('Add Batch Number');
-                  String id = DateTime.now().microsecondsSinceEpoch.toString();
-                  db.child(id).set({
-                    'courseName': model.cousreName.text,
-                    'batchNumber': model.batchNumber.text,
-                  }).then((v) {
-                    ToastPopup().toast('Data Saved', Colors.red, Colors.white);
-                    model.cousreName.clear();
-                    model.batchNumber.clear();
-                  }).onError((Error, v) {
-                    ToastPopup()
-                        .toast(Error.toString(), Colors.red, Colors.white);
-                  });
+                model.isLoading = true;
+                Get.back();
+                String id = DateTime.now().microsecondsSinceEpoch.toString();
 
-                  Get.to(LoginScreen());
-                }
+                model.dbAddBatches.child(id).set({
+                  'courseName': model.cousreName.toString().trim(),
+                  'batchNumber': model.batchNumber.toString().trim(),
+                }).then((v) {
+                  ToastPopup().toast('Data Added', Colors.green, Colors.white);
+                  model.cousreName.clear();
+                  model.batchNumber.clear();
+                }).onError((Eror, v) {
+                  ToastPopup().toast(Error, Colors.red, Colors.white);
+                });
               },
-              text: 'Save',
+              text: 'Add Batch Number',
             ),
           ],
         ),
