@@ -7,7 +7,9 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class BatchDetails extends StatefulWidget {
-  const BatchDetails({super.key});
+   BatchDetails({super.key, this.text});
+
+  final text;
 
   @override
   State<BatchDetails> createState() => _BatchDetailsState();
@@ -73,13 +75,13 @@ class _BatchDetailsState extends State<BatchDetails> {
                             itemBuilder: (context, snapshot, animation, index) {
                               return Column(
                                 children: [
-                                  // Text(
-                                  //   snapshot.child('Batch No').value.toString(),
-                                  //   style: TextStyle(
-                                  //       color: Colors.black,
-                                  //       fontSize: 20.sp,
-                                  //       fontWeight: FontWeight.bold),
-                                  // ),
+                                  Text(
+                                    snapshot.child('Batch No').value.toString(),
+                                    style: TextStyle(
+                                        color: Colors.black,
+                                        fontSize: 20.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                   // SizedBox(
                                   //   height: 20.h,
                                   // ),

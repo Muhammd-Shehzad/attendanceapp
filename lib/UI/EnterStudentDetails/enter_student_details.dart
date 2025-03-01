@@ -7,13 +7,19 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 class EnterStudentDetails extends StatefulWidget {
+
   const EnterStudentDetails({super.key});
+   
+   
 
   @override
   State<EnterStudentDetails> createState() => _EnterStudentDetailsState();
 }
 
+
+
 class _EnterStudentDetailsState extends State<EnterStudentDetails> {
+
   bool isOpen = false;
   String selectOption = 'Enter Batch Name';
   @override
@@ -213,7 +219,14 @@ class _EnterStudentDetailsState extends State<EnterStudentDetails> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(const BatchDetails());
+
+
+
+
+
+
+
+
                             },
                             text: 'Save',
                           ),

@@ -1,10 +1,7 @@
 import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
 import 'package:attendanceapp/UI/Custom/toast_popup.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,6 +18,8 @@ class AddBatchesProvider extends ChangeNotifier {
   TextEditingController noOfStudentController = TextEditingController();
   TextEditingController leaderNameController = TextEditingController();
   TextEditingController lederMobilController = TextEditingController();
+
+  final dbAddBatches = FirebaseDatabase.instance.ref('AddBatch');
 
   void saveData() {
     String id = DateTime.now().microsecondsSinceEpoch.toString();
@@ -44,12 +43,32 @@ class AddBatchesProvider extends ChangeNotifier {
       noOfStudentController.clear();
       leaderNameController.clear();
       lederMobilController.clear();
-      Get.to(const BatchDetails());
+      Get.to(BatchDetails());
       location.clear();
     }).onError((Error, v) {
       ToastPopup().toast(Error.toString(), Colors.red, Colors.white);
       isLoading = false;
       notifyListeners();
+    });
+  }
+
+  void addBatcheDetails() {
+    String id = DateTime.now().millisecondsSinceEpoch.toString();
+
+    dbAddBatches.child(id).set({
+      'batch_no': batchNoController.text.trim(),
+      'no_of_students': noOfStudentController.text.trim(),
+      'leader_name': leaderNameController.text.trim(),
+      'leader_mobil': lederMobilController.text.trim(),
+      'location': location.first.toString()
+    }).then((v) {
+      ToastPopup().toast('Data Added', Colors.green, Colors.white);
+      batchNoController.clear();
+      noOfStudentController.clear();
+      leaderNameController.clear();
+      lederMobilController.clear();
+    }).onError((Eror, v) {
+      ToastPopup().toast(Error, Colors.red, Colors.white);
     });
   }
 }
