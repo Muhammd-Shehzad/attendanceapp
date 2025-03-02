@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               alignment: Alignment.center,
                               child: Text(
-                                snapshot.child('batchNumber').value.toString(),
+                                snapshot.child('batchNumbers').value.toString(),
                                 style: TextStyle(
                                     fontSize: 18.sp,
                                     fontWeight: FontWeight.bold),
