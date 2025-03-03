@@ -1,5 +1,6 @@
 import 'package:attendanceapp/UI/AddBatches/add_batches.dart';
 import 'package:attendanceapp/UI/Auth/Login/login_screen.dart';
+import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
 import 'package:attendanceapp/UI/Home/home_screen_provider.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
@@ -92,19 +93,32 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemBuilder: (context, snapshot, animation, index) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(
-                              height: 50.h,
-                              width: 200.w,
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 160, 218, 212),
-                                borderRadius: BorderRadius.circular(35),
-                              ),
-                              alignment: Alignment.center,
-                              child: Text(
-                                snapshot.child('batchNumbers').value.toString(),
-                                style: TextStyle(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.bold),
+                            child: InkWell(
+                              onTap: () {
+                                Get.to(
+                                  BatchDetails(
+                                    Batch_Name: snapshot
+                                        .child('batch_no')
+                                        .value
+                                        .toString(),
+                                  ),
+                                );
+                              },
+                              child: Container(
+                                height: 50.h,
+                                width: 200.w,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 160, 218, 212),
+                                  borderRadius: BorderRadius.circular(35),
+                                ),
+                                alignment: Alignment.center,
+                                child: Text(
+                                  snapshot.child('batch_no').value.toString(),
+                                  style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                           );
@@ -115,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       top: 620.h,
                       left: 100.w,
                       right: 100.w,
-                      child: InkWell(     
+                      child: InkWell(
                         onTap: () {
                           Get.to(AddBatches());
                         },

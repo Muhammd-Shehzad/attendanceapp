@@ -54,6 +54,7 @@ class AddBatchesProvider extends ChangeNotifier {
 
   void addBatcheDetails() {
     String id = DateTime.now().millisecondsSinceEpoch.toString();
+    Get.back();
 
     dbAddBatches.child(id).set({
       'batch_no': batchNoController.text.trim(),
@@ -67,6 +68,8 @@ class AddBatchesProvider extends ChangeNotifier {
       noOfStudentController.clear();
       leaderNameController.clear();
       lederMobilController.clear();
+          Get.back();
+
     }).onError((Eror, v) {
       ToastPopup().toast(Error, Colors.red, Colors.white);
     });

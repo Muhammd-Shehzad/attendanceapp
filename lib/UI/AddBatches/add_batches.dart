@@ -230,6 +230,7 @@ class _AddBatchesState extends State<AddBatches> {
                                 if (model.formKey.currentState!.validate()) {
                                   model.saveData();
                                   model.addBatcheDetails();
+                                  
                                 }
                               },
                               text: 'Save',

@@ -55,7 +55,7 @@ class _EditScreenState extends State<EditScreen> {
                                   actions: [
                                     TextButton(
                                       onPressed: () {
-                                        Get.to( BatchDetails());
+                                        Get.to( '');
                                       },
                                       child: const Text('Yes'),
                                     ),
@@ -181,7 +181,7 @@ class _EditScreenState extends State<EditScreen> {
                           ),
                           Button(
                             onPressed: () {
-                              Get.to(Get.to( BatchDetails()));
+                              Get.to(Get.to( ''));
                             },
                             text: 'Save',
                           ),
