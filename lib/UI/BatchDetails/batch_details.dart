@@ -104,34 +104,34 @@ class _BatchDetailsState extends State<BatchDetails> {
                                   return Text("Loading...");
                                 }
                               }),
-                          //
-                          // const TextRich(
-                          //   text1: 'No Students:',
-                          //   text2: ' 30 ',
-                          // ),
-                          // SizedBox(
-                          //   height: 20.h,
-                          // ),
-                          // Align(
-                          //   alignment: Alignment.topLeft,
-                          //   child: Text(
-                          //     'Batch Lead Details',
-                          //     style: TextStyle(
-                          //         color: const Color(0xFF5AB7B7),
-                          //         fontSize: 20.sp),
-                          //   ),
-                          // ),
-                          // SizedBox(
-                          //   height: 20.h,
-                          // ),
-                          // const TextRich(
-                          //   text1: 'Batch Leader:',
-                          //   text2: ' Talha Iqbal',
-                          // ),
-                          // const TextRich(
-                          //   text1: 'Mobil No:',
-                          //   text2: ' 03xxxxxxxxx',
-                          // ),
+                          
+                          const TextRich(
+                            text1: 'No Students:',
+                            text2: ' 30 ',
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              'Batch Lead Details',
+                              style: TextStyle(
+                                  color: const Color(0xFF5AB7B7),
+                                  fontSize: 20.sp),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          const TextRich(
+                            text1: 'Batch Leader:',
+                            text2: ' Talha Iqbal',
+                          ),
+                          const TextRich(
+                            text1: 'Mobil No:',
+                            text2: ' 03xxxxxxxxx',
+                          ),
                           SizedBox(
                             height: 10.h,
                           ),
