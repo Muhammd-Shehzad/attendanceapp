@@ -4,7 +4,7 @@ import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/text_rich.dart';
 import 'package:attendanceapp/UI/EditScreen/edit_screen.dart';
 import 'package:attendanceapp/UI/StudentDetails/student_details.dart';
-import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -13,9 +13,13 @@ import 'package:provider/provider.dart';
 class BatchDetails extends StatefulWidget {
   BatchDetails({
     super.key,
-    this.Batch_Name,
+    this.Batch_Name, this.location, this.StudentNo, this.LeaderName, this.LeaderNo,
   });
   final Batch_Name;
+  final location;
+  final StudentNo;
+  final LeaderName;
+  final LeaderNo;
 
   @override
   State<BatchDetails> createState() => _BatchDetailsState();
@@ -91,26 +95,13 @@ class _BatchDetailsState extends State<BatchDetails> {
                             text1: 'Batch Name: ',
                             text2: widget.Batch_Name, // Using Passed Batch Name
                           ),
-                          StreamBuilder(
-                              stream: model.dbAddBatches.onValue,
-                              builder: (context,
-                                  AsyncSnapshot<DatabaseEvent> snapshot) {
-                                if (snapshot.hasData) {
-                                  return ListTile(
-                                    title:  const TextRich(
-                            
-                                  )
-                                } else {
-                                  return Text("Loading...");
-                                }
-                              }),
-                          
-                          const TextRich(
-                            text1: 'No Students:',
-                            text2: ' 30 ',
+                          TextRich(
+                            text1: 'Location: ',
+                            text2: widget.Batch_Name, // Using Passed Batch Name
                           ),
-                          SizedBox(
-                            height: 20.h,
+                          TextRich(
+                            text1: 'Students No: ',
+                            text2: widget.Batch_Name, // Using Passed Batch Name
                           ),
                           Align(
                             alignment: Alignment.topLeft,
@@ -121,16 +112,13 @@ class _BatchDetailsState extends State<BatchDetails> {
                                   fontSize: 20.sp),
                             ),
                           ),
-                          SizedBox(
-                            height: 20.h,
+                          TextRich(
+                            text1: 'Leader Name: ',
+                            text2: widget.Batch_Name, // Using Passed Batch Name
                           ),
-                          const TextRich(
-                            text1: 'Batch Leader:',
-                            text2: ' Talha Iqbal',
-                          ),
-                          const TextRich(
-                            text1: 'Mobil No:',
-                            text2: ' 03xxxxxxxxx',
+                          TextRich(
+                            text1: 'Leader No: ',
+                            text2: widget.Batch_Name, // Using Passed Batch Name
                           ),
                           SizedBox(
                             height: 10.h,

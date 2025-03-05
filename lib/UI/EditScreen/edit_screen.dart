@@ -1,4 +1,3 @@
-import 'package:attendanceapp/UI/BatchDetails/batch_details.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/EditScreen/edith_screen_provider.dart';
 import 'package:flutter/material.dart';

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class BatchDetailsProvider extends ChangeNotifier {
 
-    final dbAddBatches = FirebaseDatabase.instance.ref('AddBatch');
+  final dbAddBatches = FirebaseDatabase.instance.ref('AddBatch');
     
 
 
