@@ -4,7 +4,6 @@ import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/text_rich.dart';
 import 'package:attendanceapp/UI/EditScreen/edit_screen.dart';
 import 'package:attendanceapp/UI/StudentDetails/student_details.dart';
-import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -13,13 +12,19 @@ import 'package:provider/provider.dart';
 class BatchDetails extends StatefulWidget {
   BatchDetails({
     super.key,
-    this.Batch_Name, this.location, this.StudentNo, this.LeaderName, this.LeaderNo,
+    this.Batch_Name,
+    this.Batch_location,
+    this.Student_Number,
+    this.Leader_Name,
+    this.Leader_No,
+    this.id,
   });
   final Batch_Name;
-  final location;
-  final StudentNo;
-  final LeaderName;
-  final LeaderNo;
+  final Batch_location;
+  final Student_Number;
+  final Leader_Name;
+  final Leader_No;
+  final id;
 
   @override
   State<BatchDetails> createState() => _BatchDetailsState();
@@ -45,7 +50,13 @@ class _BatchDetailsState extends State<BatchDetails> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Get.to(const EditScreen());
+                              Get.to(EditScreen(
+                                batchName: widget.Batch_Name,
+                                locations: widget.Batch_location,
+                                studentNo: widget.Student_Number,
+                                teacherName: widget.Leader_Name,
+                                teacherNo: widget.Leader_No,
+                              ));
                             },
                             child: const InkWell(
                               child: Icon(
@@ -97,11 +108,13 @@ class _BatchDetailsState extends State<BatchDetails> {
                           ),
                           TextRich(
                             text1: 'Location: ',
-                            text2: widget.Batch_Name, // Using Passed Batch Name
+                            text2: widget
+                                .Batch_location, // Using Passed Batch Name
                           ),
                           TextRich(
                             text1: 'Students No: ',
-                            text2: widget.Batch_Name, // Using Passed Batch Name
+                            text2: widget
+                                .Student_Number, // Using Passed Batch Name
                           ),
                           Align(
                             alignment: Alignment.topLeft,
@@ -114,11 +127,12 @@ class _BatchDetailsState extends State<BatchDetails> {
                           ),
                           TextRich(
                             text1: 'Leader Name: ',
-                            text2: widget.Batch_Name, // Using Passed Batch Name
+                            text2:
+                                widget.Leader_Name, // Using Passed Batch Name
                           ),
                           TextRich(
                             text1: 'Leader No: ',
-                            text2: widget.Batch_Name, // Using Passed Batch Name
+                            text2: widget.Leader_No, // Using Passed Batch Name
                           ),
                           SizedBox(
                             height: 10.h,

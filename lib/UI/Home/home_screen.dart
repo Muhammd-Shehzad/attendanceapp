@@ -101,15 +101,23 @@ class _HomeScreenState extends State<HomeScreen> {
                                         .child('batch_no')
                                         .value
                                         .toString(),
-                                    location: snapshot
-                                        .child('location')
+                                    Batch_location: snapshot
+                                        .child('locations')
                                         .value
                                         .toString(),
-                                        StudentNo: snapshot
-                                        .child('noOfStudent')
+                                    Student_Number: snapshot
+                                        .child('no_of_students')
                                         .value
                                         .toString(),
-                                        LeaderName: snapshot.children,
+                                    Leader_Name: snapshot
+                                        .child('leader_name')
+                                        .value
+                                        .toString(),
+                                    Leader_No: snapshot
+                                        .child('leader_mobil')
+                                        .value
+                                        .toString(),
+                                    id: snapshot.child('id').value.toString(),
                                   ),
                                 );
                               },

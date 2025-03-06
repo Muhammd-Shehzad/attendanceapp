@@ -13,9 +13,6 @@ class AddBatches extends StatefulWidget {
 }
 
 class _AddBatchesState extends State<AddBatches> {
-  bool isOpen = false;
-  String selectOption = 'Enter Location';
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -82,7 +79,7 @@ class _AddBatchesState extends State<AddBatches> {
                                   InkWell(
                                     onTap: () {
                                       setState(() {
-                                        isOpen = !isOpen;
+                                        model.isOpen = !model.isOpen;
                                       });
                                     },
                                     child: Container(
@@ -97,8 +94,8 @@ class _AddBatchesState extends State<AddBatches> {
                                           Expanded(
                                             child: Center(
                                               child: Text(
-                                                selectOption.isNotEmpty
-                                                    ? selectOption
+                                                model.selectOption.isNotEmpty
+                                                    ? model.selectOption
                                                     : 'Enter Location',
                                                 style: TextStyle(
                                                     fontSize: 14.sp,
@@ -108,14 +105,14 @@ class _AddBatchesState extends State<AddBatches> {
                                               ),
                                             ),
                                           ),
-                                          Icon(isOpen
+                                          Icon(model.isOpen
                                               ? Icons.keyboard_arrow_up
                                               : Icons.keyboard_arrow_down),
                                         ],
                                       ),
                                     ),
                                   ),
-                                  if (isOpen)
+                                  if (model.isOpen)
                                     Padding(
                                       padding: const EdgeInsets.all(2),
                                       child: Container(
@@ -136,13 +133,13 @@ class _AddBatchesState extends State<AddBatches> {
                                           primary: false,
                                           shrinkWrap: true,
                                           padding: EdgeInsets.zero,
-                                          children: model.location
+                                          children: model.locations
                                               .map(
                                                 (e) => InkWell(
                                                   onTap: () {
                                                     setState(() {
-                                                      selectOption = e;
-                                                      isOpen = false;
+                                                      model.selectOption = e;
+                                                      model.isOpen = false;
                                                     });
                                                   },
                                                   child: Container(
@@ -228,7 +225,6 @@ class _AddBatchesState extends State<AddBatches> {
                             Button(
                               onPressed: () {
                                 if (model.formKey.currentState!.validate()) {
-                                  model.saveData();
                                   model.addBatcheDetails();
                                 }
                               },
