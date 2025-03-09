@@ -28,7 +28,7 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
-  TextEditingController batchNameController = TextEditingController();
+  TextEditingController batchNoController = TextEditingController();
   TextEditingController noOfStudentController = TextEditingController();
   TextEditingController leaderNameController = TextEditingController();
   TextEditingController lederMobilController = TextEditingController();
@@ -37,8 +37,8 @@ class _EditScreenState extends State<EditScreen> {
   Widget build(BuildContext context) {
     List<String> locations = ['Chrsadda', 'Naguman', 'Peshawar', 'Mardan'];
     bool isOpen = false;
-    String selectOption = 'Enter Location';
-    batchNameController.text = widget.batchName.toString();
+    String selectOption = '';
+    batchNoController.text = widget.batchName.toString();
     noOfStudentController.text = widget.studentNo.toString();
     leaderNameController.text = widget.teacherName.toString();
     lederMobilController.text = widget.teacherNo.toString();
@@ -81,7 +81,7 @@ class _EditScreenState extends State<EditScreen> {
                             height: 20.h,
                           ),
                           TextFormField(
-                            controller: batchNameController,
+                            controller: batchNoController,
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                               hintText: 'Enter Batch Name',
@@ -125,7 +125,7 @@ class _EditScreenState extends State<EditScreen> {
                                             child: Text(
                                               selectOption.isNotEmpty
                                                   ? selectOption
-                                                  : 'Enter Location',
+                                                  : widget.locations,
                                               style: TextStyle(
                                                   fontSize: 14.sp,
                                                   fontWeight: FontWeight.w400),
@@ -254,29 +254,7 @@ class _EditScreenState extends State<EditScreen> {
                             height: 20.h,
                           ),
                           Button(
-                            onPressed: () {
-                              print('helloword');
-                              model.dbAddBatches.child(widget.id).update({
-                                'batch_no': batchNameController.text.trim(),
-                                'locations': selectOption.toString(),
-                                'no_of_students':
-                                    noOfStudentController.text.trim(),
-                                'leader_name': leaderNameController.text.trim(),
-                                'leader_mobil':
-                                    lederMobilController.text.trim(),
-                              }).then((v) {
-                                ToastPopup().toast(
-                                    'Data Updated', Colors.green, Colors.white);
-                                batchNameController.clear();
-                                selectOption = '';
-                                noOfStudentController.clear();
-                                leaderNameController.clear();
-                                lederMobilController.clear();
-                              }).onError((Eror, v) {
-                                ToastPopup()
-                                    .toast(Error, Colors.red, Colors.white);
-                              });
-                            },
+                            onPressed: () {},
                             text: 'Save',
                           ),
                         ],
