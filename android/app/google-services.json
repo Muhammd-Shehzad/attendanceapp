@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "432337126395",
+    "firebase_url": "https://attendanceapp-106cd-default-rtdb.firebaseio.com",
     "project_id": "attendanceapp-106cd",
     "storage_bucket": "attendanceapp-106cd.firebasestorage.app"
   },

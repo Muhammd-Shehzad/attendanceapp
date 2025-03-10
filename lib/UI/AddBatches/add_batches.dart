@@ -67,102 +67,17 @@ class _AddBatchesState extends State<AddBatches> {
                             SizedBox(
                               height: 20.h,
                             ),
-                            Container(
-                              width: 350.w,
-                              decoration: BoxDecoration(
-                                color: Colors.grey[200],
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  InkWell(
-                                    onTap: () {
-                                      setState(() {
-                                        model.isOpen = !model.isOpen;
-                                      });
-                                    },
-                                    child: Container(
-                                      height: 50.h,
-                                      padding: EdgeInsets.symmetric(
-                                          horizontal: 16.w),
-                                      alignment: Alignment.centerLeft,
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Expanded(
-                                            child: Center(
-                                              child: Text(
-                                                model.selectOption.isNotEmpty
-                                                    ? model.selectOption
-                                                    : 'Enter Location',
-                                                style: TextStyle(
-                                                    fontSize: 14.sp,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            ),
-                                          ),
-                                          Icon(model.isOpen
-                                              ? Icons.keyboard_arrow_up
-                                              : Icons.keyboard_arrow_down),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                  if (model.isOpen)
-                                    Padding(
-                                      padding: const EdgeInsets.all(2),
-                                      child: Container(
-                                        width: 319.w,
-                                        decoration: BoxDecoration(
-                                          color: Colors.grey[200],
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color:
-                                                  Colors.grey.withOpacity(0.2),
-                                              blurRadius: 4,
-                                              spreadRadius: 2,
-                                              offset: const Offset(0, 2),
-                                            ),
-                                          ],
-                                        ),
-                                        child: ListView(
-                                          primary: false,
-                                          shrinkWrap: true,
-                                          padding: EdgeInsets.zero,
-                                          children: model.locations
-                                              .map(
-                                                (e) => InkWell(
-                                                  onTap: () {
-                                                    setState(() {
-                                                      model.selectOption = e;
-                                                      model.isOpen = false;
-                                                    });
-                                                  },
-                                                  child: Container(
-                                                    height: 30.h,
-                                                    padding:
-                                                        EdgeInsets.symmetric(
-                                                            horizontal: 20.w),
-                                                    alignment:
-                                                        Alignment.centerLeft,
-                                                    child: Text(
-                                                      e,
-                                                      style: TextStyle(
-                                                          fontSize: 14.sp),
-                                                    ),
-                                                  ),
-                                                ),
-                                              )
-                                              .toList(),
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
+                            CustomTextFormField(
+                              hitText: 'Enter Location',
+                              keyBoradType: TextInputType.text,
+                              obsText: false,
+                              controller: model.locationController,
+                              vlaidationText: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter Batch No';
+                                }
+                                return null;
+                              },
                             ),
                             SizedBox(
                               height: 20.h,
@@ -226,6 +141,7 @@ class _AddBatchesState extends State<AddBatches> {
                               onPressed: () {
                                 if (model.formKey.currentState!.validate()) {
                                   model.addBatcheDetails();
+                                  print('helloooooo');
                                 }
                               },
                               text: 'Save',

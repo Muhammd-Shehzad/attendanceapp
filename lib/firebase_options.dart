@@ -57,6 +57,8 @@ class DefaultFirebaseOptions {
     appId: '1:432337126395:android:93b78581d5ec533c8f815e',
     messagingSenderId: '432337126395',
     projectId: 'attendanceapp-106cd',
+    databaseURL: 'https://attendanceapp-106cd-default-rtdb.firebaseio.com',
     storageBucket: 'attendanceapp-106cd.firebasestorage.app',
   );
+
 }
