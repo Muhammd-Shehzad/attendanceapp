@@ -53,12 +53,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDAqRbDd9j958ZyKlJR78fIsP2mleG_8AY',
-    appId: '1:432337126395:android:93b78581d5ec533c8f815e',
-    messagingSenderId: '432337126395',
-    projectId: 'attendanceapp-106cd',
-    databaseURL: 'https://attendanceapp-106cd-default-rtdb.firebaseio.com',
-    storageBucket: 'attendanceapp-106cd.firebasestorage.app',
+    apiKey: 'AIzaSyAmoDtxzuV55zHo5NKX7JK0oBGeRgGCt-g',
+    appId: '1:759397181564:android:fe2a0ea66fd04fd70a41f9',
+    messagingSenderId: '759397181564',
+    projectId: 'attendanceapp-90770',
+    databaseURL: 'https://attendanceapp-90770-default-rtdb.firebaseio.com',
+    storageBucket: 'attendanceapp-90770.firebasestorage.app',
   );
 
 }

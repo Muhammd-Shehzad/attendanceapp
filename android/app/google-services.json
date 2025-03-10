@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "432337126395",
-    "firebase_url": "https://attendanceapp-106cd-default-rtdb.firebaseio.com",
-    "project_id": "attendanceapp-106cd",
-    "storage_bucket": "attendanceapp-106cd.firebasestorage.app"
+    "project_number": "759397181564",
+    "firebase_url": "https://attendanceapp-90770-default-rtdb.firebaseio.com",
+    "project_id": "attendanceapp-90770",
+    "storage_bucket": "attendanceapp-90770.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:432337126395:android:93b78581d5ec533c8f815e",
+        "mobilesdk_app_id": "1:759397181564:android:fe2a0ea66fd04fd70a41f9",
         "android_client_info": {
           "package_name": "com.example.attendanceapp"
         }
@@ -16,26 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDAqRbDd9j958ZyKlJR78fIsP2mleG_8AY"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:432337126395:android:9f8f277b7054757b8f815e",
-        "android_client_info": {
-          "package_name": "come.example.attendanceapp"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDAqRbDd9j958ZyKlJR78fIsP2mleG_8AY"
+          "current_key": "AIzaSyAmoDtxzuV55zHo5NKX7JK0oBGeRgGCt-g"
         }
       ],
       "services": {

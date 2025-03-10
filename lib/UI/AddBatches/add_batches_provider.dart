@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AddBatchesProvider extends ChangeNotifier {
-
-  
-
   bool isLoading = false;
   FirebaseAuth auth = FirebaseAuth.instance;
   final formKey = GlobalKey<FormState>();
@@ -22,9 +19,6 @@ class AddBatchesProvider extends ChangeNotifier {
   TextEditingController locationController = TextEditingController();
 
   final dbAddBatches = FirebaseDatabase.instance.ref('AddBatch');
-    
-
-  
 
   void addBatcheDetails() {
     String id = DateTime.now().millisecondsSinceEpoch.toString();
