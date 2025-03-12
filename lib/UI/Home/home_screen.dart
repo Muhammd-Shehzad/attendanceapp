@@ -122,21 +122,30 @@ class _HomeScreenState extends State<HomeScreen> {
                                 );
                               },
                               child: Container(
-                                height: 50.h,
-                                width: 200.w,
-                                decoration: BoxDecoration(
-                                  color:
-                                      const Color.fromARGB(255, 160, 218, 212),
-                                  borderRadius: BorderRadius.circular(35),
-                                ),
-                                alignment: Alignment.center,
-                                child: Text(
-                                  snapshot.child('batch_no').value.toString(),
-                                  style: TextStyle(
-                                      fontSize: 18.sp,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
+                                  height: 50.h,
+                                  width: 200.w,
+                                  decoration: BoxDecoration(
+                                    color: const Color.fromARGB(
+                                        255, 160, 218, 212),
+                                    borderRadius: BorderRadius.circular(35),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                        snapshot
+                                            .child('batch_no')
+                                            .value
+                                            .toString(),
+                                        style: TextStyle(
+                                            fontSize: 18.sp,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Icon(Icons.close),
+                                    ],
+                                  )),
                             ),
                           );
                         },

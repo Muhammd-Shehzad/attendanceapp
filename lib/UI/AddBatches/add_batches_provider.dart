@@ -28,7 +28,8 @@ class AddBatchesProvider extends ChangeNotifier {
       'no_of_students': noOfStudentController.text.trim(),
       'leader_name': leaderNameController.text.trim(),
       'leader_mobil': lederMobilController.text.trim(),
-      'locations': locationController.text.trim()
+      'locations': locationController.text.trim(),
+      'id': id
     }).then((v) {
       ToastPopup().toast('Data Added', Colors.green, Colors.white);
       batchNoController.clear();

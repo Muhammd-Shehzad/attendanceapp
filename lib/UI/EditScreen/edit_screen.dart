@@ -1,6 +1,7 @@
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/toast_popup.dart';
 import 'package:attendanceapp/UI/EditScreen/edith_screen_provider.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -28,21 +29,21 @@ class EditScreen extends StatefulWidget {
 }
 
 class _EditScreenState extends State<EditScreen> {
+  final dbAddBatches = FirebaseDatabase.instance.ref('AddBatch');
+
   TextEditingController batchNoController = TextEditingController();
   TextEditingController noOfStudentController = TextEditingController();
   TextEditingController leaderNameController = TextEditingController();
   TextEditingController lederMobilController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    List<String> locations = ['Chrsadda', 'Naguman', 'Peshawar', 'Mardan'];
-    bool isOpen = false;
-    String selectOption = '';
     batchNoController.text = widget.batchName.toString();
     noOfStudentController.text = widget.studentNo.toString();
     leaderNameController.text = widget.teacherName.toString();
     lederMobilController.text = widget.teacherNo.toString();
-    selectOption = widget.locations.toString();
+    locationController.text = widget.locations.toString();
 
     return ChangeNotifierProvider(
       create: (context) => EdithScreenProvider(),
@@ -96,98 +97,17 @@ class _EditScreenState extends State<EditScreen> {
                           SizedBox(
                             height: 20.h,
                           ),
-                          Container(
-                            width: 350.w,
-                            decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isOpen = !isOpen;
-                                    });
-                                  },
-                                  child: Container(
-                                    height: 50.h,
-                                    padding:
-                                        EdgeInsets.symmetric(horizontal: 16.w),
-                                    alignment: Alignment.centerLeft,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Expanded(
-                                          child: Center(
-                                            child: Text(
-                                              selectOption.isNotEmpty
-                                                  ? selectOption
-                                                  : widget.locations,
-                                              style: TextStyle(
-                                                  fontSize: 14.sp,
-                                                  fontWeight: FontWeight.w400),
-                                              textAlign: TextAlign.center,
-                                            ),
-                                          ),
-                                        ),
-                                        Icon(isOpen
-                                            ? Icons.keyboard_arrow_up
-                                            : Icons.keyboard_arrow_down),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                if (isOpen)
-                                  Padding(
-                                    padding: const EdgeInsets.all(2),
-                                    child: Container(
-                                      width: 319.w,
-                                      decoration: BoxDecoration(
-                                        color: Colors.grey[200],
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: Colors.grey.withOpacity(0.2),
-                                            blurRadius: 4,
-                                            spreadRadius: 2,
-                                            offset: const Offset(0, 2),
-                                          ),
-                                        ],
-                                      ),
-                                      child: ListView(
-                                        primary: false,
-                                        shrinkWrap: true,
-                                        padding: EdgeInsets.zero,
-                                        children: locations
-                                            .map(
-                                              (e) => InkWell(
-                                                onTap: () {
-                                                  setState(() {
-                                                    selectOption = e;
-                                                    isOpen = false;
-                                                  });
-                                                },
-                                                child: Container(
-                                                  height: 30.h,
-                                                  padding: EdgeInsets.symmetric(
-                                                      horizontal: 20.w),
-                                                  alignment:
-                                                      Alignment.centerLeft,
-                                                  child: Text(
-                                                    e,
-                                                    style: TextStyle(
-                                                        fontSize: 14.sp),
-                                                  ),
-                                                ),
-                                              ),
-                                            )
-                                            .toList(),
-                                      ),
-                                    ),
-                                  ),
-                              ],
+                          TextFormField(
+                            controller: locationController,
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                              hintText: 'Enter Location',
+                              filled: true,
+                              fillColor: Colors.grey[200],
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                           ),
                           SizedBox(
@@ -254,7 +174,17 @@ class _EditScreenState extends State<EditScreen> {
                             height: 20.h,
                           ),
                           Button(
-                            onPressed: () {},
+                            onPressed: () {
+                              dbAddBatches.child(widget. id).update({
+                                'batch_no': batchNoController.text,
+                              }).then((v) {
+                                ToastPopup().toast('Sign Out Successfully',
+                                    Colors.green, Colors.white);
+                              }).onError((error, v) {
+                                ToastPopup()
+                                    .toast(Error, Colors.red, Colors.white);
+                              });
+                            },
                             text: 'Save',
                           ),
                         ],

@@ -27,7 +27,7 @@ class LoginProvider extends ChangeNotifier {
       email.clear();
       password.clear();
       notifyListeners();
-    }).onError((error, stackTrace) {
+    }).onError((error, v) {
       ToastPopup().toast(error.toString(), Colors.red, Colors.white);
       isloading = false;
       notifyListeners();

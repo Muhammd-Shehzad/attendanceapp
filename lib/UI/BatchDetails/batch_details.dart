@@ -2,8 +2,10 @@ import 'package:attendanceapp/UI/AttandanceScreen/attandacne_screen.dart';
 import 'package:attendanceapp/UI/BatchDetails/batch_details_provider.dart';
 import 'package:attendanceapp/UI/Custom/button.dart';
 import 'package:attendanceapp/UI/Custom/text_rich.dart';
+import 'package:attendanceapp/UI/Custom/toast_popup.dart';
 import 'package:attendanceapp/UI/EditScreen/edit_screen.dart';
 import 'package:attendanceapp/UI/StudentDetails/student_details.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -69,10 +71,25 @@ class _BatchDetailsState extends State<BatchDetails> {
                           SizedBox(
                             width: 10.w,
                           ),
-                          const Icon(
-                            Icons.delete,
-                            size: 30,
-                            color: Colors.teal,
+                          InkWell(
+                            onTap: () {
+                              final dbAddBatches =
+                                  FirebaseDatabase.instance.ref('AddBatch');
+                              dbAddBatches.child(widget.id).remove().then((v) {
+                                ToastPopup().toast(
+                                    'Data Deleted', Colors.green, Colors.white);
+
+                                Get.back();
+                              }).onError((Eror, v) {
+                                ToastPopup()
+                                    .toast(Error, Colors.red, Colors.white);
+                              });
+                            },
+                            child: Icon(
+                              Icons.delete,
+                              size: 30,
+                              color: Colors.teal,
+                            ),
                           ),
                         ],
                       ),

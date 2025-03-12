@@ -141,7 +141,6 @@ class _AddBatchesState extends State<AddBatches> {
                               onPressed: () {
                                 if (model.formKey.currentState!.validate()) {
                                   model.addBatcheDetails();
-                                  print('helloooooo');
                                 }
                               },
                               text: 'Save',
