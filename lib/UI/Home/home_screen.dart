@@ -72,17 +72,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 160.h,
-                      left: 140.w,
-                      right: 140.w,
-                      child: Text(
-                        'Batches',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 20.sp,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                        top: 160.h,
+                        left: 140.w,
+                        right: 140.w,
+                        child: Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Text(
+                              'Batches',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            Icon(Icons.close),
+                          ],
+                        )),
                     Positioned(
                       top: 190.h,
                       left: 20.w,
